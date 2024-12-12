@@ -12,6 +12,8 @@
 - numpy >= 1.25.2
 
 ## Description
+The implementations of SCANS on Llama2 and vicuna can be referred to SCANS_llama.py and SCANS_vicuna.py, respectively.
+
 
 ## Citation
 If you use our technique or are inspired by our work, welcome to cite our paper and provide valuable suggestions.
