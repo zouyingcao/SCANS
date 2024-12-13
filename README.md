@@ -38,6 +38,10 @@ Motivated by the intuition of representation engineering to steer model behavior
 
 - ```MATCH_STRINGS``` in ```utils/modeling_utils.py``` list some example refusal string keywords. We adopt string matching to judge whether the model response refuses the query because we find that after activation steering, models may use some more fixed phrases to refuse that can be well covered by a manually defined string set. You can also modify the given ```MATCH_STRINGS``` according to your model outputs to guarantee the accuracy of judgement results.
 
+- ```utils/load_safety_dataset.py``` provides the loading methods of some safety-related datasets in our paper. When you want to test other new safety-related datasets, you might need to add new dataset loading function here.
+
+- ```utils/llama_wrapper.py``` provides 
+
 - The used datasets in our paper is provided in  ```datasets``` folder.
 
   We use [AdvBench](https://github.com/ltroin/llm_attack_defense_arena) as the harmful queries and [TruthfulQA](https://github.com/sylinrl/TruthfulQA) as the benign ones to generate the refusal steering vector.
