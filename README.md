@@ -74,6 +74,7 @@ python SCANS_llama.py \
 python SCANS_llama.py \
     --load_testdata datasets/MaliciousInstruct.txt,datasets/Held-outHarmless.txt
 ```
+TODO: add more hyper-parameters to help reproduction.
 
 ## Citation
 If you use our technique or are inspired by our work, welcome to cite our paper and provide valuable suggestions.
