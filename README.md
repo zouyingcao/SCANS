@@ -1,4 +1,8 @@
-# SCANS: Mitigating the Exaggerated Safety for LLMs via Safety-Conscious Activation Steering
+# SCANS
+Official repository for our AAAI 2025 paper ["SCANS: Mitigating the Exaggerated Safety for LLMs via Safety-Conscious Activation Steering"](https://arxiv.org/abs/2408.11491).
+
+## Overview
+Motivated by the intuition of representation engineering to steer model behavior, the key idea behind our SCANS is to extract the refusal behavior vectors, and anchor the safety-critical layers for steering. SCANS then evaluates the harmfulness of inputs to guide output distribution against or consistent with the refusal behavior, which achieves a balance between adequate safety and exaggerated safety.
 ![overview](https://github.com/user-attachments/assets/1a97cfe2-db17-4136-bf65-dd9b3a7b5622)
 
 ## Recommended software environment
@@ -41,11 +45,38 @@
   We use [RepE-Data](https://huggingface.co/datasets/justinphan3110/harmful_harmless_instructions), the remaining AdvBench, [MaliciousInstruct](https://github.com/Princeton-SysML/Jailbreak_LLM) to evaluate the security.
 
 - We also evaluate whether the SCANS would result in a model capability decline. (a) multi-choice question answer-
-ing task ```mmlu_eval.py```: we choose MMLU (Hendrycks et al. 2020) since it is considered comprehensive and challenging due to the extensive knowledge needed. (b) generation task```xsum_eval.py```: taking text summaries as an example, we use XSum (Narayan, Cohen, and Lapata 2018) to evaluate the quality of generated summaries when employing activation steering. Besides, we include two perplexity-based tasks ```ppl_eval.py```, WikiText-2 (Merity et al. 2017) and C4 (Raffel et al. 2020).
+ing task ```mmlu_eval.py```: we choose MMLU (Hendrycks et al. 2020) since it is considered comprehensive and challenging due to the extensive knowledge needed. (b) generation task ```xsum_eval.py```: taking text summaries as an example, we use XSum (Narayan, Cohen, and Lapata 2018) to evaluate the quality of generated summaries when employing activation steering. Besides, we include two perplexity-based tasks ```ppl_eval.py```, WikiText-2 (Merity et al. 2017) and C4 (Raffel et al. 2020).
+
+## Usage 
+The below script is one example of using our SCANS on Llama2-7b-chat model. 
+
+```sh
+# for llama2_7b_chat
+python SCANS_llama.py
+
+python SCANS_llama.py \
+    --load_testdata datasets/xstest_v2_prompts.csv
+
+python SCANS_llama.py \
+    --load_testdata datasets/OKTest.csv,datasets/HarmfulQ.json
+
+python SCANS_llama.py \
+    --load_testdata datasets/representation-engineering/data/test-00000-of-00001-e88521c3da183185.parquet
+
+python SCANS_llama.py \
+    --load_testdata datasets/MaliciousInstruct.txt,datasets/Held-outHarmless.txt
+```
 
 ## Citation
 If you use our technique or are inspired by our work, welcome to cite our paper and provide valuable suggestions.
 ```
+@inproceedings{
+    cao2024scans,
+    title={{SCANS}: Mitigating the Exaggerated Safety for {LLM}s via Safety-Conscious Activation Steering},
+    author={Cao, Zouying and Yang, Yifei and Zhao, Hai},
+    booktitle={The 39th Annual AAAI Conference on Artificial Intelligence},
+    year={2024}
+}
 ```
 
 > [!NOTE]  
