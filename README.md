@@ -40,7 +40,7 @@ Motivated by the intuition of representation engineering to steer model behavior
 
 - ```utils/load_safety_dataset.py``` provides the loading methods of some safety-related datasets in our paper. When you want to test other new safety-related datasets, you might need to add new dataset loading function here.
 
-- ```utils/llama_wrapper.py``` is inspired by this [work](https://github.com/nrimsky/CAA)(Thanks!). When you want to test other models (except Llama2, vicuna), you might need to modify this file accordingly(e.g., different chat templates).
+- ```utils/llama_wrapper.py``` is inspired by this [work](https://github.com/nrimsky/CAA) (Thanks!). When you want to test other models (except Llama2, vicuna), you might need to modify this file accordingly (e.g., different chat templates).
 
 - The used datasets in our paper is provided in  ```datasets``` folder.
 
