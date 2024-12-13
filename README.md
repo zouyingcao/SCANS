@@ -26,7 +26,7 @@ Motivated by the intuition of representation engineering to steer model behavior
 
   ```--use_chat```: The default value is ```True``` since our work focuses on the mitigation of exaggerated safety issue which is common in aligned LLMs.
 
-  ```--multiplier```:  Refs to hyperparameter α that controls the strength of steering. For exmple, the steering vector multiplier α for Llama2 family models is all set to ```3.5```.
+  ```--multiplier```: Ref to hyperparameter α that controls the strength of steering. For exmple, the steering vector multiplier α for Llama2 family models is all set to ```3.5```.
 
   ```--layers```: Decide which layers to modify via safety-conscious activation steering. The default value is ```list(np.arange(10,20))```.
 
@@ -46,6 +46,8 @@ Motivated by the intuition of representation engineering to steer model behavior
 
 - We also evaluate whether the SCANS would result in a model capability decline. (a) multi-choice question answer-
 ing task ```mmlu_eval.py```: we choose MMLU (Hendrycks et al. 2020) since it is considered comprehensive and challenging due to the extensive knowledge needed. (b) generation task ```xsum_eval.py```: taking text summaries as an example, we use XSum (Narayan, Cohen, and Lapata 2018) to evaluate the quality of generated summaries when employing activation steering. Besides, we include two perplexity-based tasks ```ppl_eval.py```, WikiText-2 (Merity et al. 2017) and C4 (Raffel et al. 2020).
+
+- We additionally provide a ```classification_eval.py``` file for comparing the our classification method σ(q) with some state-of-the-art baselines (Llama Guard, Perspective API, etc.).
 
 ## Usage 
 The below script is one example of using our SCANS on Llama2-7b-chat model. 
