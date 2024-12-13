@@ -12,25 +12,33 @@
 - numpy >= 1.25.2
 
 ## Description
-The implementations of SCANS on Llama2 and vicuna can be referred to ```SCANS_llama.py``` and ```SCANS_vicuna.py```, respectively.
+- The implementations of SCANS on Llama2 and vicuna can be referred to ```SCANS_llama.py``` and ```SCANS_vicuna.py```, respectively.
 
-### Parameters:
+  #### Parameters:
 
-```--model_path```: To prevent instability in remote access, our code uses local model loading. You need to download the model you need to deploy (e.g., Llama2-7b-chat) into the ``model_path`` folder and specify this parameter when running the code.
+  ```--model_path```: To prevent instability in remote access, our code uses local model loading. You need to download the model you need to deploy (e.g., Llama2-7b-chat) into the ``model_path`` folder and specify this parameter when running the code.
 
-```--model_size```: Our experiments are primarily based on Llama2-7b-chat, Llama2-13b-chat, vicuna-7b-v1.5 and vicuna-13b-v1.5 and we have tuned some hyper-parameters for each model. Thus, you can set this parameter to tell which model is used, like ```model_size="7b"``` and ```model_size="13b"``` in ``SCANS_llama.py``` ref to Llama2-7b-chat and Llama2-13b-chat model, respectively.
+  ```--model_size```: Our experiments are primarily based on Llama2-7b-chat, Llama2-13b-chat, vicuna-7b-v1.5 and vicuna-13b-v1.5 and we have tuned some hyper-parameters for each model. Thus, you can set this parameter to tell which model is used, like ```model_size="7b"``` and ```model_size="13b"``` in ``SCANS_llama.py``` ref to Llama2-7b-chat and Llama2-13b-chat model, respectively.
 
-```--use_chat```: The default value is ```True``` since our work focuses on the mitigation of exaggerated safety issue which is common in aligned LLMs.
+  ```--use_chat```: The default value is ```True``` since our work focuses on the mitigation of exaggerated safety issue which is common in aligned LLMs.
 
-```--multiplier```:  Refs to hyperparameter α that controls the strength of steering. For exmple, the steering vector multiplier α for Llama2 family models is all set to ```3.5```.
+  ```--multiplier```:  Refs to hyperparameter α that controls the strength of steering. For exmple, the steering vector multiplier α for Llama2 family models is all set to ```3.5```.
 
-```--layers```: Decide which layers to modify via safety-conscious activation steering. The default value is ```list(np.arange(10,20))```.
+  ```--layers```: Decide which layers to modify via safety-conscious activation steering. The default value is ```list(np.arange(10,20))```.
 
-```--anchor_size```: The size of dataset used to get the safety steering vector and unsafe reference transition vector. The default value is ```64```.
+  ```--anchor_size```: The size of dataset used to get the safety steering vector and unsafe reference transition vector. The default value is ```64```.
 
-```--load_testdata```: The default value is ```"default"``` which represents two datasets: advbench(unsafe)&truthfulqa(safe); otherwise, load the test dataset path.
+  ```--load_testdata```: The default value is ```"default"``` which represents two datasets: advbench(unsafe)&truthfulqa(safe); otherwise, load the test dataset path.
 
-```--output_path```: Save output (input prompts, LLM outputs after SCANS, etc.) of each sample to ```"./outputs"```(the default saving path, you can modify as needed).
+  ```--output_path```: Save output (input prompts, LLM outputs after SCANS, etc.) of each sample to ```"./outputs"```(the default saving path, you can modify as needed).
+
+- The used datasets in our paper is provided in  ```datasets``` folder.
+
+  We use [AdvBench](https://github.com/ltroin/llm_attack_defense_arena) as the harmful queries and [TruthfulQA](https://github.com/sylinrl/TruthfulQA) as the benign ones to generate the refusal steering vector.
+  
+  We select [XSTest](https://github.com/paul-rottger/exaggerated-safety) and [OKTest](https://github.com/InvokerStark/OverKill) which are two prominent benchmarks focusing on the exaggerated safety phenomenon in LLMs.
+  
+- 
 
 ## Citation
 If you use our technique or are inspired by our work, welcome to cite our paper and provide valuable suggestions.
