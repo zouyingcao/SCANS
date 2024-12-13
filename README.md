@@ -30,7 +30,7 @@ The implementations of SCANS on Llama2 and vicuna can be referred to ```SCANS_ll
 
 ```--load_testdata```: The default value is ```"default"``` which represents two datasets: advbench(unsafe)&truthfulqa(safe); otherwise, load the test dataset path.
 
-```--output_path```: The default value is ```"./outputs"```.
+```--output_path```: Save output (input prompts, LLM outputs after SCANS, etc.) of each sample to ```"./outputs"```(the default saving path, you can modify as needed).
 
 ## Citation
 If you use our technique or are inspired by our work, welcome to cite our paper and provide valuable suggestions.
