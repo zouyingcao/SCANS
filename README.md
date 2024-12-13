@@ -38,9 +38,10 @@
   
   We select [XSTest](https://github.com/paul-rottger/exaggerated-safety) and [OKTest](https://github.com/InvokerStark/OverKill) which are two prominent benchmarks focusing on the exaggerated safety phenomenon in LLMs.
 
-  We use [RepE-Data](https://huggingface.co/datasets/justinphan3110/harmful_harmless_instructions), the remaining AdvBench, [Malicious](https://github.com/Princeton-SysML/Jailbreak_LLM) to evaluate the security.
+  We use [RepE-Data](https://huggingface.co/datasets/justinphan3110/harmful_harmless_instructions), the remaining AdvBench, [MaliciousInstruct](https://github.com/Princeton-SysML/Jailbreak_LLM) to evaluate the security.
 
-- 
+- We also evaluate whether the SCANS would result in a model capability decline. (a) multi-choice question answer-
+ing task ```mmlu_eval.py```: we choose MMLU (Hendrycks et al. 2020) since it is considered comprehensive and challenging due to the extensive knowledge needed. (b) generation task```xsum_eval.py```: taking text summaries as an example, we use XSum (Narayan, Cohen, and Lapata 2018) to evaluate the quality of generated summaries when employing activation steering. Besides, we include two perplexity-based tasks ```ppl_eval.py```, WikiText-2 (Merity et al. 2017) and C4 (Raffel et al. 2020).
 
 ## Citation
 If you use our technique or are inspired by our work, welcome to cite our paper and provide valuable suggestions.
