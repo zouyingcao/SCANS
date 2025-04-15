@@ -79,12 +79,14 @@ TODO: add more hyper-parameters to help reproduction.
 ## Citation
 If you use our technique or are inspired by our work, welcome to cite our paper and provide valuable suggestions.
 ```
-@inproceedings{
-    cao2024scans,
-    title={{SCANS}: Mitigating the Exaggerated Safety for {LLM}s via Safety-Conscious Activation Steering},
-    author={Cao, Zouying and Yang, Yifei and Zhao, Hai},
-    booktitle={The 39th Annual AAAI Conference on Artificial Intelligence},
-    year={2024}
+@inproceedings{cao2025scans,
+  title={SCANS: Mitigating the Exaggerated Safety for LLMs via Safety-Conscious Activation Steering},
+  author={Cao, Zouying and Yang, Yifei and Zhao, Hai},
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume={39},
+  number={22},
+  pages={23523--23531},
+  year={2025}
 }
 ```
 
